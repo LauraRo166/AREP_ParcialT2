@@ -10,7 +10,8 @@ import java.util.List;
 @RestController
 public class MathController {
     @GetMapping("/lucasSequence")
-    public List<Integer> lucasSequence(@RequestParam(value = "value") Integer value) {
-        return MathServices.lucasSequence(value);
+    public MathLucas lucasSequence(@RequestParam(value = "value") Integer value) {
+        List<Integer> sequence = MathServices.lucasSequence(value);
+        return new MathLucas("Secuencia de Lucas", value, sequence);
     }
 }
